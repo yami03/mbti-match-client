@@ -1,29 +1,34 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import './login.scss';
 
-const LoginForm = ({ onSubmit, onChange, login }) => {
-  return (
-    <div className="loginForm form">
-      <form onSubmit={onSubmit}>
-        <label htmlFor="email">email</label>
-        <input
-          type="email"
-          name="email"
-          required
-          value={login.email}
-          onChange={onChange}
-        />
-        <label htmlFor="password">password</label>
-        <input
-          type="password"
-          name="password"
-          required
-          value={login.password}
-          onChange={onChange}
-        />
-        <button>로그인</button>
-      </form>
-    </div>
-  );
-};
+const LoginForm = ({ onSubmit, onChange, login, error }) => (
+  <div className="loginForm form">
+    <p className="error">{error}</p>
+    <form onSubmit={onSubmit}>
+      <input
+        type="email"
+        name="email"
+        placeholder="email"
+        maxLength="80"
+        value={login.email}
+        onChange={onChange}
+        required
+      />
+      <input
+        type="password"
+        name="password"
+        placeholder="password"
+        value={login.password}
+        onChange={onChange}
+        required
+      />
+      <button>Login</button>
+    </form>
+    <Link to="/signup" className="button">
+      Sign up
+    </Link>
+  </div>
+);
 
 export default LoginForm;

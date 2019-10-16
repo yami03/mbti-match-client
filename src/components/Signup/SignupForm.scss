@@ -1,0 +1,54 @@
+.signupForm {
+  text-align: left;
+
+  input,
+  select {
+    font-size: 16px;
+    height: 40px;
+    margin: 0 auto 10px;
+  }
+
+  h2 {
+    padding: 15px 0 10px;
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
+  }
+
+  label,
+  p {
+    display: block;
+    padding: 0 5%;
+    line-height: 30px;
+    color: #fff;
+  }
+
+  .error {
+    margin: 0 auto;
+    width: 90%;
+    line-height: 20px;
+    color: red;
+  }
+
+  button {
+    display: block;
+    margin: 20px auto 0;
+  }
+
+  a {
+    color: pink;
+  }
+}
+
+.gender-area {
+  width: 90%;
+  margin: 0 auto 10px;
+
+  label,
+  input {
+    display: inline-block;
+    height: auto;
+    width: auto;
+    margin-bottom: 0;
+  }
+}

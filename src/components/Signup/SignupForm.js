@@ -1,10 +1,12 @@
 import React from 'react';
+import './SignupForm.scss';
 
-const SignupForm = ({ onSubmit, onChange, register }) => {
+const SignupForm = ({ onSubmit, onChange, register, error, onFileChange }) => {
   return (
     <div className="signupForm form">
       <h2>회원가입</h2>
       <form onSubmit={onSubmit}>
+        <p className="error">{error}</p>
         <label htmlFor="mbit" required>
           MBTI
         </label>
@@ -15,7 +17,7 @@ const SignupForm = ({ onSubmit, onChange, register }) => {
           value={register.mbti}
           onChange={onChange}
         >
-          <option value="">mbti를 선택해 주세요~</option>
+          <option value="">mbti를 선택해 주세요.</option>
           <option value="intj">INTJ 용의주도한 전략가</option>
           <option value="intp">INTP 논리적인 사색가</option>
           <option value="entj">ENTJ 대담한 통솔자</option>
@@ -32,6 +34,13 @@ const SignupForm = ({ onSubmit, onChange, register }) => {
           <option value="estp">ESTP 모험을 즐기는 사업가</option>
           <option value="esfp">ESFP 자유로운 영혼의 연예인</option>
         </select>
+        <p>
+          mbti를 모르신다면
+          <a href="https://www.16personalities.com/ko/%EB%AC%B4%EB%A3%8C-%EC%84%B1%EA%B2%A9-%EC%9C%A0%ED%98%95-%EA%B2%80%EC%82%AC">
+            mbti 사이트
+          </a>
+          에서 검사를 부탁드립니다.
+        </p>
         <label htmlFor="email">email</label>
         <input
           type="email"
@@ -39,32 +48,69 @@ const SignupForm = ({ onSubmit, onChange, register }) => {
           required
           value={register.email}
           onChange={onChange}
+          maxLength="100"
         />
         <label htmlFor="password">password</label>
         <input
           type="password"
           name="password"
           required
-          value={register.password}
+          value={register.password || ''}
           onChange={onChange}
+          maxLength="18"
+          minLength="6"
         />
-        <label htmlFor="passwordConfirm">password</label>
+        <label htmlFor="passwordConfirm">password confirm</label>
         <input
           type="password"
           name="passwordConfirm"
           required
-          value={register.passwordConfirm}
+          value={register.passwordConfirm || ''}
           onChange={onChange}
+          maxLength="18"
+          minLength="6"
         />
         <label htmlFor="name">name</label>
         <input
           type="text"
           name="name"
           required
-          value={register.name}
+          value={register.name || ''}
           onChange={onChange}
+          maxLength="13"
         />
-        <button>가입하기</button>
+        <p>성별</p>
+        <div className="gender-area">
+          <input
+            type="radio"
+            name="gender"
+            value="female"
+            id="female"
+            checked={register.gender === 'female'}
+            onChange={onChange}
+            required
+          />
+          <label htmlFor="female">여성</label>
+          <input
+            type="radio"
+            name="gender"
+            value="male"
+            id="male"
+            checked={register.gender === 'male'}
+            onChange={onChange}
+          />
+          <label htmlFor="male">남성</label>
+        </div>
+        <label htmlFor="file">프로필 사진</label>
+        <input
+          type="file"
+          name="file"
+          id="file"
+          onChange={onFileChange}
+          accept="image/x-png,image/gif,image/jpeg"
+          required
+        />
+        <button>Sign up</button>
       </form>
     </div>
   );

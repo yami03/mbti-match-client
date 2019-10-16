@@ -1,0 +1,59 @@
+.form {
+  input,
+  select {
+    display: block;
+    margin: 0 auto 20px;
+    padding: 0 20px;
+    width: 90%;
+    height: 50px;
+    font-size: 20px;
+    color: cyan;
+    background: 0;
+    border: 1px solid cyan;
+    border-radius: 2px;
+
+    &::placeholder {
+      color: #348989;
+    }
+  }
+
+  button,
+  a.button {
+    display: inline-block;
+    margin: 0 auto;
+    width: 43%;
+    line-height: 38px;
+    font-size: 18px;
+    border: none;
+    color: #fff;
+    background: fuchsia;
+    opacity: 0.9;
+
+    &:hover {
+      background: rgba(255, 0, 255, 0.5);
+      box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+      opacity: 1;
+    }
+  }
+}
+
+.loginForm {
+  position: relative;
+  padding-top: 40px;
+
+  button {
+    margin-left: 5%;
+    float: left;
+  }
+
+  a.button {
+    margin-right: 5%;
+    float: right;
+  }
+
+  .error {
+    position: absolute;
+    top: 0;
+    left: 5%;
+  }
+}

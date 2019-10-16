@@ -1,20 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import './App.scss';
-import { Route, Redirect, Switch } from 'react-router-dom';
-import Signup from './containers/Signup';
+import { Route, Switch } from 'react-router-dom';
 import Login from './containers/Login';
+import Signup from './containers/Signup';
+import ListMembers from './containers/Signup';
+import Profile from './containers/Profile';
 import NotFound from './containers/NotFound';
 
 const App = () => {
   return (
     <div className="app">
-      <p>App</p>
-      <Switch>
-        <Route path="/signup" component={Signup} />
-        <Route path="/login" component={Login} />
-        <Route path="*" compoent={NotFound} />
-      </Switch>
+      <div className="wrap">
+        <Switch>
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={Signup} />
+          <Route path="/ListMembers" component={ListMembers} />
+          <Route path="/profile" component={Profile} />
+          <Route path="*" compoent={NotFound} />
+        </Switch>
+      </div>
     </div>
   );
 };

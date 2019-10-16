@@ -1,0 +1,41 @@
+.app {
+  max-width: 640px;
+  min-height: 100%;
+  margin: 0 auto;
+  padding: 27px;
+  text-align: center;
+
+  &:after {
+    content: '';
+    clear: both;
+    display: block;
+  }
+}
+
+.wrap {
+  position: relative;
+  z-index: 1;
+  border: 1px solid fuchsia;
+  box-shadow: 0 0 10px purple;
+  min-height: calc(100vh - 54px);
+
+  &:after {
+    content: '';
+    clear: both;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 1rem;
+    left: 1rem;
+    z-index: -1;
+    border-bottom: 1px solid fuchsia;
+    border-right: 1px solid fuchsia;
+    box-shadow: 3px 3px 3px 0 #80008066;
+  }
+
+  .error {
+    color: red;
+    line-height: 24px;
+  }
+}
