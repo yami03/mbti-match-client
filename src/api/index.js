@@ -1,21 +1,18 @@
 import axios from 'axios';
 
-export const getMbtiRelationDiagram = () => {
-  axios.get('http://localhost:4001/mbti').then(response => {
-    return response.mbtiRelationDiagram;
-  });
-};
-
 export const postSignup = (formData, registerData) => {
   return axios
     .post('/api/signup', {
       ...registerData
     })
-    .then(rep => {
-      axios
+    .then(response => {
+      return axios
         .post('/api/upload', formData)
         .then(result => {
-          return result.data;
+          return {
+            data: result.data,
+            error: ''
+          };
         })
         .catch(err => {
           return {
@@ -23,6 +20,17 @@ export const postSignup = (formData, registerData) => {
           };
         });
     })
+    .catch(err => {
+      return {
+        error: err.response.data.message || 'server error'
+      };
+    });
+};
+
+export const getUser = () => {
+  return axios
+    .get('/api/auth/user')
+    .then(response => response.data)
     .catch(err => {
       return {
         error: err.response.data.message || 'server error'
