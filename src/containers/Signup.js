@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { withRouter } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import SignupForm from '../components/Signup/SignupForm';
 import { changeRegisterForm, getGeolocation } from '../actions';
 import { postSignup } from '../api';
 
-const Signup = () => {
+const Signup = ({ history }) => {
   const [error, setError] = useState('');
   const [file, setFile] = useState(null);
   const register = useSelector(state => state.register);
@@ -46,17 +47,6 @@ const Signup = () => {
     setFile(ev.target.files[0]);
   };
 
-  /*const onFileChange = ev => {
-    const file = ev.target.files[0];
-    const temp = {};
-    for (let k in file) {
-      temp[k] = file[k];
-    }
-
-    console.log(temp);
-    dispatch(changeFileField(temp));
-  };*/
-
   const onSubmit = async ev => {
     ev.preventDefault();
     const passwordReg = new RegExp(
@@ -96,7 +86,7 @@ const Signup = () => {
     const formData = new FormData();
     formData.append('file', file);
     const result = await postSignup(formData, register);
-    console.log(result);
+    history.push('/users/list');
   };
 
   return (
@@ -110,4 +100,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default withRouter(Signup);

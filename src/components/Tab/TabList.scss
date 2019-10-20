@@ -1,0 +1,19 @@
+nav {
+  ul {
+    display: flex;
+  }
+
+  li {
+    width: 33.3333%;
+
+    a {
+      display: block;
+      padding: 14px 0;
+      font-size: 24px;
+
+      &.selected {
+        color: cyan;
+      }
+    }
+  }
+}

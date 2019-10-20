@@ -55,7 +55,7 @@ const Login = ({ history }) => {
     dispatch(
       successUserAuthentication(objectKeysToCamelCase(result.data.user))
     );
-    history.push('/profile');
+    history.push('/users/list');
   };
 
   return (

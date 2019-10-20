@@ -2,7 +2,11 @@ import {
   CHANGE_LOGIN_FORM,
   CHANGE_REGISTER_FORM,
   GET_GEOLOCATION,
-  SUCCESS_USER_AUTHENTICATION
+  SUCCESS_USER_AUTHENTICATION,
+  LOAD_USERS_SUCCESS,
+  INCREASE_CHOICE_COUNT,
+  RESET_CHOICE_COUNT,
+  INCREASE_PAGE_INDEX
 } from '../contants/actionTypes';
 
 const initialState = {
@@ -27,7 +31,8 @@ const initialState = {
     }
   },
   user: {
-    mbit: '',
+    id: '',
+    mbti: {},
     name: '',
     profileImage: '',
     dob: '',
@@ -41,7 +46,12 @@ const initialState = {
     likeMe: [],
     chats: [],
     mailConfirm: false
-  }
+  },
+  isAuthenticated: false,
+  totalUserCount: 0,
+  users: [],
+  choiceCount: 0,
+  pageIndex: 0
 };
 
 function reducer(state = initialState, action) {
@@ -65,9 +75,26 @@ function reducer(state = initialState, action) {
         })
       });
     case SUCCESS_USER_AUTHENTICATION:
-      debugger;
       return Object.assign({}, state, {
-        user: action.user
+        user: action.user,
+        isAuthenticated: true
+      });
+    case LOAD_USERS_SUCCESS:
+      return Object.assign({}, state, {
+        users: action.users,
+        totalUserCount: action.totalUserCount
+      });
+    case INCREASE_CHOICE_COUNT:
+      return Object.assign({}, state, {
+        choiceCount: state.choiceCount + 1
+      });
+    case RESET_CHOICE_COUNT:
+      return Object.assign({}, state, {
+        choiceCount: 0
+      });
+    case INCREASE_PAGE_INDEX:
+      return Object.assign({}, state, {
+        pageIndex: state.pageIndex + 1
       });
     default:
       return state;

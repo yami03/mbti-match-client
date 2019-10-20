@@ -2,7 +2,11 @@ import {
   CHANGE_REGISTER_FORM,
   CHANGE_LOGIN_FORM,
   GET_GEOLOCATION,
-  SUCCESS_USER_AUTHENTICATION
+  SUCCESS_USER_AUTHENTICATION,
+  LOAD_USERS_SUCCESS,
+  INCREASE_CHOICE_COUNT,
+  RESET_CHOICE_COUNT,
+  INCREASE_PAGE_INDEX
 } from '../contants/actionTypes';
 
 export const changeRegisterForm = ({ name, value }) => {
@@ -33,5 +37,31 @@ export const successUserAuthentication = user => {
   return {
     type: SUCCESS_USER_AUTHENTICATION,
     user
+  };
+};
+
+export const loadUsersSuccess = data => {
+  return {
+    type: LOAD_USERS_SUCCESS,
+    users: data.users,
+    totalUserCount: data.totalUserCount
+  };
+};
+
+export const increaseChoiceCount = () => {
+  return {
+    type: INCREASE_CHOICE_COUNT
+  };
+};
+
+export const resetChoiceCount = () => {
+  return {
+    type: RESET_CHOICE_COUNT
+  };
+};
+
+export const increasePageIndex = () => {
+  return {
+    type: INCREASE_PAGE_INDEX
   };
 };

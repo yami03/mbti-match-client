@@ -14,15 +14,15 @@ export const postSignup = (formData, registerData) => {
             error: ''
           };
         })
-        .catch(err => {
+        .catch(error => {
           return {
-            error: err.response.data.message || 'server error'
+            error: error.response.data.message || 'server error'
           };
         });
     })
-    .catch(err => {
+    .catch(error => {
       return {
-        error: err.response.data.message || 'server error'
+        error: error.response.data.message || 'server error'
       };
     });
 };
@@ -31,9 +31,9 @@ export const getUser = () => {
   return axios
     .get('/api/auth/user')
     .then(response => response.data)
-    .catch(err => {
+    .catch(error => {
       return {
-        error: err.response.data.message || 'server error'
+        error: error.response.data.message || 'server error'
       };
     });
 };
@@ -50,9 +50,48 @@ export const postLogin = data => {
         error: ''
       };
     })
-    .catch(err => {
+    .catch(error => {
       return {
-        error: err.response.data.message || 'server error'
+        error: error.response.data.message || 'server error'
       };
+    });
+};
+
+export const getUsers = ({ limit, pageIndex }) => {
+  return axios({
+    url: `/api/users?limit=${limit}&pageIndex=${pageIndex}`,
+    method: 'GET'
+  })
+    .then(response => {
+      return response.data;
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};
+
+export const addLikeUser = partnerId => {
+  return axios({
+    url: `/api/users/likes/${partnerId}`,
+    method: 'PUT'
+  })
+    .then(response => {
+      console.log(response);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};
+
+export const getLikeMe = () => {
+  return axios({
+    url: '/api/user/likes',
+    method: 'GET'
+  })
+    .then(response => {
+      return response.data.likes_me;
+    })
+    .catch(error => {
+      console.log(error);
     });
 };
