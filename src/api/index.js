@@ -95,3 +95,57 @@ export const getLikeMe = () => {
       console.log(error);
     });
 };
+
+export const postChat = partnerId => {
+  return axios({
+    url: `/api/chats/${partnerId}`,
+    method: 'POST'
+  })
+    .then(response => {
+      return response.data;
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};
+
+export const getChats = () => {
+  return axios({
+    url: '/api/chats',
+    method: 'GET'
+  })
+    .then(response => {
+      return response.data;
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};
+
+export const getChat = roomId => {
+  return axios({
+    url: `/api/chats/${roomId}`,
+    method: 'GET'
+  })
+    .then(response => {
+      return response.data.chat;
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};
+
+export const postNewMessage = (roomId, data) => {
+  return axios({
+    url: `/api/chats/${roomId}`,
+    method: 'PUT',
+    data
+  })
+    .then(response => {
+      console.log(response.data);
+      return response.data;
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};
