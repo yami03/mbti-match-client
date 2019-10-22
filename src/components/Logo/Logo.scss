@@ -1,8 +1,86 @@
+@import '../../utility/scss/variables';
+
+.logo-wrap {
+  height: 50%;
+  position: relative;
+  background: linear-gradient(
+    0,
+    rgba(244, 235, 160, 1) 43%,
+    rgba(192, 250, 202, 1) 43%
+  );
+}
+
+.logo-area {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-top: 48px;
+  background: linear-gradient(
+    10deg,
+    rgba(244, 235, 160, 1) 43%,
+    rgba(192, 250, 202, 1) 43%
+  );
+}
+
 .logo {
-  padding: 40% 0;
-  font-size: 50px;
+  width: 245px;
+  margin: 0 auto;
+  position: relative;
+  word-break: keep-all;
+  letter-spacing: 0.18em;
+  font-family: 'Black Han Sans', sans-serif;
+  text-transform: uppercase;
+  font-size: 52px;
   text-align: center;
-  font-weight: bold;
-  color: cyan;
-  text-shadow: 0 0 10px teal;
+  line-height: 1;
+  color: $red;
+  text-shadow: -1px -1px 0 $purple, 1px -1px 0 $purple, -1px 1px 0 $purple,
+    1px 1px 0 $purple, 1px 0px 0px $green, 0px 1px 0px $green,
+    2px 1px 0px $green, 1px 2px 0px $green, 3px 2px 0px $green,
+    2px 3px 0px $green, 4px 3px 0px $green, 3px 4px 0px $green,
+    5px 4px 0px $green, 3px 5px 0px $purple, 6px 5px 0px $purple,
+    -1px 2px 0 black, 0 3px 0 $purple, 1px 4px 0 $purple, 2px 5px 0px $purple,
+    2px -1px 0 $purple, 3px 0 0 $purple, 4px 1px 0 $purple, 5px 2px 0px $purple,
+    6px 3px 0 $purple, 7px 4px 0 $purple, 10px 10px 4px #dac249;
+
+  &:after,
+  &:before {
+    content: attr(data-heading);
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    width: 100%;
+    top: 0;
+    z-index: 5;
+    word-break: keep-all;
+  }
+
+  &:before {
+    text-shadow: -1px -1px 0 $darkred, 1px -1px 0 $darkred, -1px 1px 0 $darkred,
+      1px 1px 0 $darkred, 1px 0px 0px $orange, 0px 1px 0px $orange,
+      2px 1px 0px $orange, 1px 2px 0px $orange, 3px 2px 0px $orange,
+      2px 3px 0px $orange, 4px 3px 0px $orange, 3px 4px 0px $orange,
+      5px 4px 0px $orange, 3px 5px 0px $darkred, 6px 5px 0px $darkred,
+      -1px 2px 0 black, 0 3px 0 $darkred, 1px 4px 0 $darkred,
+      2px 5px 0px $darkred, 2px -1px 0 $darkred, 3px 0 0 $darkblue,
+      4px 1px 0 $darkred, 5px 2px 0px $darkred, 6px 3px 0 $darkred,
+      7px 4px 0 $darkred, 10px 10px 4px rgba(#6af177, 0.8);
+    color: $green;
+    height: 66%;
+  }
+
+  &:after {
+    height: 33%;
+    color: $blue;
+    text-shadow: -1px -1px 0 $darkblue, 1px -1px 0 $darkblue,
+      -1px 1px 0 $darkblue, 1px 1px 0 $darkblue, 1px 0px 0px $red,
+      0px 1px 0px $red, 2px 1px 0px $red, 1px 2px 0px $red, 3px 2px 0px $red,
+      2px 3px 0px $red, 4px 3px 0px $red, 3px 4px 0px $red, 5px 4px 0px $red,
+      3px 5px 0px $darkblue, 6px 5px 0px $darkblue, -1px 2px 0 black,
+      0 3px 0 $darkblue, 1px 4px 0 $darkblue, 2px 5px 0px $darkblue,
+      2px -1px 0 $darkblue, 3px 0 0 $darkblue, 4px 1px 0 $darkblue,
+      5px 2px 0px $darkblue, 6px 3px 0 $darkblue, 7px 4px 0 $darkblue;
+  }
 }

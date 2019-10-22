@@ -1,0 +1,29 @@
+.form {
+  input,
+  select {
+    display: block;
+    margin: 0 auto 20px;
+    padding: 0 20px;
+    width: 90%;
+    height: 50px;
+    font-size: 20px;
+    color: $darkblue;
+    background: #fff;
+    border: 3px solid $blue;
+    border-radius: 2px;
+  }
+
+  button,
+  a.button {
+    display: inline-block;
+    margin: 0 auto;
+    width: 43%;
+    line-height: 38px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    color: #fff;
+    background: $blue;
+    opacity: 0.9;
+  }
+}

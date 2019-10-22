@@ -59,7 +59,7 @@ const Login = ({ history }) => {
   };
 
   return (
-    <div className="loginWrap">
+    <>
       <Logo />
       <LoginForm
         onChange={onChange}
@@ -67,7 +67,7 @@ const Login = ({ history }) => {
         error={error}
         login={login}
       />
-    </div>
+    </>
   );
 };
 
