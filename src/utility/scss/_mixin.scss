@@ -1,0 +1,9 @@
+@mixin text-shadow($line, $bg) {
+  text-shadow: -1px -1px 0 $line, 1px -1px 0 $line, -1px 1px 0 $line,
+    1px 1px 0 $line, 1px 0px 0px $bg, 0px 1px 0px $bg, 2px 1px 0px $bg,
+    1px 2px 0px $bg, 3px 2px 0px $bg, 2px 3px 0px $bg, 4px 3px 0px $bg,
+    3px 4px 0px $bg, 5px 4px 0px $bg, 3px 5px 0px $line, 6px 5px 0px $line,
+    -1px 2px 0 black, 0 3px 0 $line, 1px 4px 0 $line, 2px 5px 0px $line,
+    2px -1px 0 $line, 3px 0 0 $line, 4px 1px 0 $line, 5px 2px 0px $line,
+    6px 3px 0 $line, 7px 4px 0 $line;
+}

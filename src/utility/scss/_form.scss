@@ -1,12 +1,13 @@
 .form {
   input,
-  select {
+  select,
+  textarea {
     display: block;
     margin: 0 auto 20px;
-    padding: 0 20px;
+    padding: 0 6px;
     width: 90%;
     height: 50px;
-    font-size: 20px;
+    font-size: 16px;
     color: $darkblue;
     background: #fff;
     border: 3px solid $blue;
@@ -16,7 +17,6 @@
   button,
   a.button {
     display: inline-block;
-    margin: 0 auto;
     width: 43%;
     line-height: 38px;
     font-size: 18px;

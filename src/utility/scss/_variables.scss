@@ -3,9 +3,22 @@ $blue: #4ad9db;
 $green: #65f283;
 $orange: #f5b10b;
 $yellow: #f4eba0;
+$mint: #c0faca;
+$sky: #d5f5f5;
+$pink: #fbbfcc;
 
 $darkblue: #2f3e9c;
 $darkred: #9e132c;
 $purple: #6e1f58;
 
 $outline: 2px;
+
+$background: linear-gradient(
+  10deg,
+  rgba(244, 235, 160, 1) 43%,
+  rgba(192, 250, 202, 1) 43%
+);
+
+$tab-height: 53px;
+
+$bold-font: 'Black Han Sans', sans-serif;
