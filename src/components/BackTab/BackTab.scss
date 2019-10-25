@@ -1,0 +1,29 @@
+@import '../../utility/scss/variables';
+@import '../../utility/scss/mixin';
+
+.back-tab {
+  position: relative;
+  height: 8%;
+  padding: 0 20px;
+  text-align: left;
+  background: $top-tab;
+
+  button {
+    color: $top-tab-point;
+    font-size: 24px;
+    line-height: 50px;
+    height: 100%;
+  }
+
+  .title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-top: 2px;
+    font-family: $bold-font;
+    font-size: 28px;
+    color: $orange;
+    @include text-shadow($purple, $green);
+  }
+}

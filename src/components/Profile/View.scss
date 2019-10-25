@@ -1,0 +1,84 @@
+@import '../../utility/scss/variables';
+
+.profile-area {
+  padding-top: 8vh;
+
+  .mbti {
+    font-family: 'Black Han Sans', sans-serif;
+    padding: 10px 0 10px 20px;
+    font-size: 35px;
+    color: #fff;
+    text-shadow: -1px -1px 0 #2f3e9c, 1px -1px 0 #2f3e9c, -1px 1px 0 #2f3e9c,
+      1px 1px 0 #2f3e9c, 1px 0px 0px #ffffff, 0px 1px 0px #ffffff,
+      2px 1px 0px #ffffff, 1px 2px 0px #ffffff, 3px 2px 0px #ffffff,
+      2px 3px 0px #ffffff, 4px 3px 0px #ffffff, 3px 4px 0px #ffffff,
+      5px 4px 0px #ffffff, 3px 5px 0px #2f3e9c, 6px 5px 0px #2f3e9c,
+      -1px 2px 0 black, 0 3px 0 #2f3e9c, 1px 4px 0 #2f3e9c, 2px 5px 0px #2f3e9c,
+      2px -1px 0 #2f3e9c, 3px 0 0 #2f3e9c, 4px 1px 0 #2f3e9c,
+      5px 2px 0px #2f3e9c, 6px 3px 0 #2f3e9c, 7px 4px 0 #2f3e9c;
+  }
+
+  .name {
+    font-size: 30px;
+    font-family: 'Black Han Sans', sans-serif;
+    color: #fff;
+    text-shadow: -1px -1px 0 #6e1f58, 1px -1px 0 #6e1f58, -1px 1px 0 #6e1f58,
+      1px 1px 0 #6e1f58, 1px 0px 0px #ffffff, 0px 1px 0px #ffffff,
+      2px 1px 0px #ffffff, 1px 2px 0px #ffffff, 3px 2px 0px #ffffff,
+      2px 3px 0px #ffffff, 4px 3px 0px #ffffff, 3px 4px 0px #ffffff,
+      5px 4px 0px #ffffff, 3px 5px 0px #6e1f58, 6px 5px 0px #6e1f58,
+      -1px 2px 0 black, 0 3px 0 #6e1f58, 1px 4px 0 #6e1f58, 2px 5px 0px #6e1f58,
+      2px -1px 0 #6e1f58, 3px 0 0 #6e1f58, 4px 1px 0 #6e1f58,
+      5px 2px 0px #6e1f58, 6px 3px 0 #6e1f58, 7px 4px 0 #6e1f58;
+  }
+
+  .profile-image {
+    width: 30vh;
+    height: 30vh;
+    padding-bottom: 2vh;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .description {
+    width: 88%;
+    max-height: 87px;
+    margin: 0 auto;
+    padding: 6px 10px;
+    line-height: 25px;
+    text-align: left;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #9292921c;
+  }
+
+  .likes {
+    padding: 20px;
+    font-size: 28px;
+    color: $red;
+    font-family: 'Black Han Sans', sans-serif;
+
+    .num {
+      padding-left: 10px;
+      font-size: 32px;
+    }
+  }
+}
+
+.link-button {
+  display: inline-block;
+  margin: 20px auto 0;
+  width: 30%;
+  line-height: 38px;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  color: #fff;
+  background: $blue;
+  opacity: 0.9;
+  border-radius: 4px;
+
+  & + .link-button {
+    margin: 20px;
+  }
+}
