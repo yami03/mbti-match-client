@@ -92,24 +92,24 @@ const ListMembers = () => {
       return;
     }
 
-    if (choiceCount === LIMIT - 1 || choiceCount + 2 === partners.length) {
-      let result = await getUsers({ limit: LIMIT, pageIndex: pageIndex + 1 });
+    // if (choiceCount === LIMIT - 1 || choiceCount + 2 === partners.length) {
+    //   let result = await getUsers({ limit: LIMIT, pageIndex: pageIndex + 1 });
 
-      if (!result.total_user_count || !partners.length) {
-        setnotice('모든 회원을 선택 하셨습니다~! 고생하셨습니다!');
-        dispatch(noticeSelectedAll());
-        return;
-      }
+    //   if (!result.total_user_count || !partners.length) {
+    //     setnotice('모든 회원을 선택 하셨습니다~! 고생하셨습니다!');
+    //     dispatch(noticeSelectedAll());
+    //     return;
+    //   }
 
-      console.log('users' + result.length);
-      result = await objectKeysToCamelCase(result);
-      dispatch(addNewUsers(result));
-      dispatch(resetChoiceCount());
-      dispatch(increasePageIndex());
-      setView('front');
-      setMatchData('level0');
-      return;
-    }
+    //   console.log('users' + result.length);
+    //   // result = await objectKeysToCamelCase(result);
+    //   dispatch(addNewUsers(result));
+    //   dispatch(resetChoiceCount());
+    //   dispatch(increasePageIndex());
+    //   setView('front');
+    //   setMatchData('level0');
+    //   return;
+    // }
 
     dispatch(increaseChoiceCount());
     setView('front');
