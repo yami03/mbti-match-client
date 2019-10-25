@@ -1,6 +1,13 @@
+@import '../../utility/scss/variables';
+
 .choice-tab {
+  height: 10%;
+  background: $blue;
+
   ul {
     display: flex;
+    align-items: center;
+    height: 100%;
   }
 
   li {
@@ -8,7 +15,13 @@
   }
 
   button {
-    color: cyan;
-    font-size: 46px;
+    color: #ffffff;
+    font-size: 7vh;
+    background: none;
+    border: none;
+  }
+
+  span {
+    font-size: 18px;
   }
 }

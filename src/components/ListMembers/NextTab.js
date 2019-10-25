@@ -6,7 +6,7 @@ import './NextTab.scss';
 const NextTab = ({ onNextClick }) => (
   <div className="next-tab">
     <button onClick={onNextClick}>
-      next
+      <span>next</span>
       <FontAwesomeIcon icon={faHandPointRight} />
     </button>
   </div>

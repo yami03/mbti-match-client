@@ -1,6 +1,19 @@
+@import '../../utility/scss/variables';
+
 .next-tab {
+  display: flex;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: center;
+  height: 10%;
+  background: $blue;
+
   button {
-    color: cyan;
+    color: #ffffff;
     font-size: 46px;
+
+    span {
+      padding-right: 18px;
+    }
   }
 }

@@ -1,6 +1,10 @@
+@import '../../utility/scss/variables';
+@import '../../utility/scss/mixin';
+@import '../../utility/scss/emoji';
+
 .choice-list {
   position: relative;
-  height: 80%;
+  height: 82%;
   border-radius: 5px;
 
   .partner {
@@ -14,9 +18,23 @@
     left: 0;
     width: 100%;
     padding: 10px 5px;
+    color: #ffffff;
     text-align: left;
-    background: rgba(238, 238, 238, 0.35);
+    background: rgba(159, 154, 154, 0.56);
     border-radius: 5px;
+    -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+
+    .name {
+      padding-bottom: 10px;
+      font-family: 'Black Han Sans', sans-serif;
+      font-size: 26px;
+      @include text-shadow(#6b6767, #ffffff);
+    }
+
+    .description {
+      font-weight: bold;
+    }
   }
 
   .profile-image {
@@ -35,13 +53,27 @@
     transition: all 0.8s ease;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
-    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+
+    .emoji-list {
+      padding-top: 6vh;
+    }
+
+    .emoji {
+      display: none;
+      margin: 0 auto;
+    }
   }
 
   .back {
+    padding-top: 30px;
+    font-family: $bold-font;
+    font-size: 6vh;
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
+
+    span {
+      font-size: 13vh;
+    }
   }
 
   &.show-back .front {
@@ -54,8 +86,76 @@
     transform: rotateY(0);
   }
 
+  &.show-back .back {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+  }
+
   .card.back {
-    background: linear-gradient(-45deg, #ffec61, #f321d7);
     border-radius: 5px;
+
+    span {
+      color: $darkblue;
+      @include text-shadow($darkblue, #ffffff);
+    }
+  }
+}
+
+.show-front {
+  .title,
+  .figure,
+  .mbti-info {
+    display: none;
+  }
+}
+
+.show-back {
+  .level4.back {
+    background: $pink;
+    .emoji--yay {
+      display: block;
+    }
+  }
+
+  .level3.back {
+    background: $sky;
+    .emoji--haha {
+      display: block;
+    }
+  }
+
+  .level2.back {
+    background: $mint;
+    .emoji--wow {
+      display: block;
+    }
+  }
+
+  .level1.back {
+    background: $orange;
+    .emoji--sad {
+      display: block;
+    }
+  }
+
+  .level0.back {
+    background: $darkred;
+    .emoji--angry {
+      display: block;
+    }
+  }
+}
+
+.mbti-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30px;
+  font-size: 20px;
+
+  .arrow {
+    font-size: 25px;
+    padding: 0 20px;
+    color: $darkblue;
   }
 }

@@ -10,11 +10,13 @@ const Tab = ({ onLikeClick, onUnLikeClick }) => {
         <li>
           <button onClick={onLikeClick}>
             <FontAwesomeIcon icon={faKissWinkHeart} />
+            <span>Like</span>
           </button>
         </li>
         <li>
           <button onClick={onUnLikeClick}>
             <FontAwesomeIcon icon={faMeh} />
+            <span>Pass</span>
           </button>
         </li>
       </ul>
