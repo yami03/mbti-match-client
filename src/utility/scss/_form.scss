@@ -26,4 +26,17 @@
     background: $blue;
     opacity: 0.9;
   }
+
+  input[type='file'] {
+    height: auto;
+    padding: 10px;
+  }
+
+  textarea {
+    padding: 10px 5px;
+    resize: none;
+    height: 90px;
+    line-height: 22px;
+    overflow: hidden;
+  }
 }
