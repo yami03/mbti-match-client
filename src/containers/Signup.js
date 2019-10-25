@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import SignupForm from '../components/Signup/SignupForm';
-import { changeRegisterForm, getGeolocation } from '../actions';
+import BackTab from '../components/BackTab/BackTab';
+import { changeRegisterForm, getGeolocation, registerMember } from '../actions';
+import { objectKeysToCamelCase } from '../utility/formattingData';
 import { postSignup } from '../api';
 
 const Signup = ({ history }) => {
@@ -85,18 +87,23 @@ const Signup = ({ history }) => {
 
     const formData = new FormData();
     formData.append('file', file);
-    const result = await postSignup(formData, register);
-    history.push('/users/list');
+    await postSignup(formData, register).then(result =>
+      dispatch(registerMember(objectKeysToCamelCase(result.data)))
+    );
+    history.push('/profile');
   };
 
   return (
-    <SignupForm
-      register={register}
-      onChange={onChange}
-      onFileChange={onFileChange}
-      onSubmit={onSubmit}
-      error={error}
-    />
+    <>
+      <BackTab title={'Sign up'} />
+      <SignupForm
+        register={register}
+        onChange={onChange}
+        onFileChange={onFileChange}
+        onSubmit={onSubmit}
+        error={error}
+      />
+    </>
   );
 };
 

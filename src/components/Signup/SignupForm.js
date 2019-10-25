@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './SignupForm.scss';
 
 const SignupForm = ({ onSubmit, onChange, register, error, onFileChange }) => {
+  let form = null;
+
+  useEffect(() => {
+    const scrollToTop = () => {
+      form.scrollIntoView({ block: 'start' });
+    };
+
+    scrollToTop();
+  }, [error, form]);
   return (
     <div className="signupForm form">
-      <h2>회원가입</h2>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} ref={le => (form = le)}>
         <p className="error">{error}</p>
         <label htmlFor="mbit" required>
           MBTI
@@ -27,6 +35,7 @@ const SignupForm = ({ onSubmit, onChange, register, error, onFileChange }) => {
           <option value="enfj">ENFJ 정의로운 사회운동가</option>
           <option value="enfp">ENFP 재기발랄한 활동가</option>
           <option value="istj">ISTJ 청렴결백한 논리주의자</option>
+          <option value="infp">INFP 용감한 수호자</option>
           <option value="estj">ESTJ 엄격한 관리자</option>
           <option value="esfj">ESFJ 사교적인 외교관</option>
           <option value="istp">ISTP 만능 재주꾼</option>
@@ -79,7 +88,7 @@ const SignupForm = ({ onSubmit, onChange, register, error, onFileChange }) => {
           onChange={onChange}
           maxLength="13"
         />
-        <p>성별</p>
+        <p className="title">성별</p>
         <div className="gender-area">
           <input
             type="radio"
@@ -109,6 +118,14 @@ const SignupForm = ({ onSubmit, onChange, register, error, onFileChange }) => {
           onChange={onFileChange}
           accept="image/x-png,image/gif,image/jpeg"
           required
+        />
+        <label htmlFor="description">자기소개</label>
+        <textarea
+          type="text"
+          name="description"
+          maxLength="60"
+          value={register.description}
+          onChange={onChange}
         />
         <button>Sign up</button>
       </form>

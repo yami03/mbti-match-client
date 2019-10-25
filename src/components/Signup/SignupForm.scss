@@ -1,5 +1,17 @@
+@import '../../utility/scss/variables';
+@import '../../utility/scss/mixin';
+
 .signupForm {
+  height: 92%;
+  overflow: hidden;
+  overflow-y: scroll;
+  padding: 0 0 20px 0;
   text-align: left;
+  background: linear-gradient(10deg, #f4eba0 43%, #c0faca 43%);
+
+  form {
+    padding-top: 20px;
+  }
 
   input,
   select {
@@ -9,10 +21,17 @@
   }
 
   h2 {
-    padding: 15px 0 10px;
-    font-size: 18px;
+    font-family: 'Black Han Sans', sans-serif;
+    padding: 35px 0 25px;
+    font-size: 40px;
     text-align: center;
-    color: #fff;
+    color: $blue;
+    @include text-shadow($darkblue, $red);
+  }
+
+  label,
+  title {
+    font-weight: bold;
   }
 
   label,
@@ -20,11 +39,12 @@
     display: block;
     padding: 0 5%;
     line-height: 30px;
-    color: #fff;
+    color: #2f3e9c;
   }
 
   .error {
     margin: 0 auto;
+    padding: 0;
     width: 90%;
     line-height: 20px;
     color: red;
@@ -36,19 +56,23 @@
   }
 
   a {
-    color: pink;
+    color: $purple;
   }
-}
 
-.gender-area {
-  width: 90%;
-  margin: 0 auto 10px;
+  .gender-area {
+    width: 90%;
+    margin: 0 auto 10px;
 
-  label,
-  input {
-    display: inline-block;
-    height: auto;
-    width: auto;
-    margin-bottom: 0;
+    label,
+    input {
+      display: inline-block;
+      height: auto;
+      width: auto;
+      margin-bottom: 0;
+    }
+  }
+
+  button {
+    margin: 0 auto;
   }
 }
