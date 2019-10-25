@@ -51,7 +51,9 @@ const Login = ({ history }) => {
   const onSubmit = async ev => {
     ev.preventDefault();
     const result = await postLogin(login);
-    if (result.error) return setError(result.error);
+    if (result.error) {
+      return setError(result.error);
+    }
     dispatch(
       successUserAuthentication(objectKeysToCamelCase(result.data.user))
     );

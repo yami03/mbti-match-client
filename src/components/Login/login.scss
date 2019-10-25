@@ -17,9 +17,10 @@
     float: right;
   }
 
-  .error {
+  .errors {
     position: absolute;
     top: 0;
     left: 5%;
+    transform: translateY(-50%);
   }
 }

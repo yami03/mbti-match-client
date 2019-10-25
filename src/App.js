@@ -13,22 +13,22 @@ import NotFound from './containers/NotFound';
 import MainLoading from './containers/MainLoading';
 
 const App = () => {
-  const { isAuthenticated, isLoading } = useSelector(state => ({
+  const { isAuthenticated, isMainLoading } = useSelector(state => ({
     isAuthenticated: state.isAuthenticated,
-    isLoading: state.isLoading
+    isMainLoading: state.isMainLoading
   }));
 
-  const privateRender = (Component, ...props) => {
+  const privateRender = (Component, props) => {
     return isAuthenticated === true ? (
-      <Component {...props} />
+      <Component props={props} />
     ) : (
       <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
     );
   };
 
-  const notLoginRender = (Component, ...props) => {
+  const notLoginRender = (Component, props) => {
     return !isAuthenticated === true ? (
-      <Component {...props} />
+      <Component props={props} />
     ) : (
       <Redirect
         to={{ pathname: '/profile', state: { from: props.location } }}
@@ -39,10 +39,11 @@ const App = () => {
   return (
     <div className="app">
       <div className="wrap">
-        {isLoading ? (
+        {isMainLoading ? (
           <MainLoading />
         ) : (
           <Switch>
+            <Redirect exact path="/" to="/login" />
             <Route
               path="/login"
               render={props => notLoginRender(Login, props)}

@@ -17,11 +17,7 @@
   top: 50%;
   transform: translateY(-50%);
   padding-top: 48px;
-  background: linear-gradient(
-    10deg,
-    rgba(244, 235, 160, 1) 43%,
-    rgba(192, 250, 202, 1) 43%
-  );
+  background: $background;
 }
 
 .logo {
