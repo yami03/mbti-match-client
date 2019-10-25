@@ -1,15 +1,12 @@
 html,
 body {
   height: 100%;
-  background: linear-gradient(45deg, #0f1630 0%, #350d29 100%);
-  font-family: 'Share Tech Mono', 'Nanum Gothic', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 }
 
 body {
   margin: 0;
   box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   line-height: 1;
 }
 
@@ -36,9 +33,16 @@ a {
 
 button,
 input {
-  font-family: 'Share Tech Mono', 'Nanum Gothic', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   outline: none;
   cursor: pointer;
+  border: none;
+  background: none;
+}
+
+textarea,
+pre {
+  font-family: 'Nanum Gothic', sans-serif;
 }
 
 #root {

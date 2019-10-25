@@ -1,0 +1,44 @@
+@import '../../utility/scss/variables';
+
+.edit-form {
+  padding: 10px 0 20px;
+  text-align: left;
+  background: linear-gradient(10deg, #f4eba0 43%, #c0faca 43%);
+  height: 92%;
+
+  form {
+    padding-top: 20px;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+
+  label,
+  .title {
+    display: block;
+    padding: 0 5%;
+    line-height: 30px;
+    color: #2f3e9c;
+    font-weight: bold;
+  }
+
+  h2 {
+    font-family: 'Black Han Sans', sans-serif;
+    padding: 15px 0 25px;
+    font-size: 40px;
+    text-align: center;
+    color: $blue;
+    text-shadow: -1px -1px 0 $darkblue, 1px -1px 0 $darkblue,
+      -1px 1px 0 $darkblue, 1px 1px 0 $darkblue, 1px 0px 0px $red,
+      0px 1px 0px $red, 2px 1px 0px $red, 1px 2px 0px $red, 3px 2px 0px $red,
+      2px 3px 0px $red, 4px 3px 0px $red, 3px 4px 0px $red, 5px 4px 0px $red,
+      3px 5px 0px $darkblue, 6px 5px 0px $darkblue, -1px 2px 0 black,
+      0 3px 0 $darkblue, 1px 4px 0 $darkblue, 2px 5px 0px $darkblue,
+      2px -1px 0 $darkblue, 3px 0 0 $darkblue, 4px 1px 0 $darkblue,
+      5px 2px 0px $darkblue, 6px 3px 0 $darkblue, 7px 4px 0 $darkblue;
+  }
+
+  button {
+    display: block;
+    margin: 0 auto;
+  }
+}

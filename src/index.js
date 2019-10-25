@@ -1,12 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { createStore } from 'redux';
-import { Provider, useDispatch } from 'react-redux';
+import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import matchApp from './reducers';
 import App from './App';
 import './index.scss';
-import { successUserAuthentication } from './actions';
+import { successUserAuthentication, checkUserNotLogin } from './actions';
 import { getUser } from './api';
 import { objectKeysToCamelCase } from './utility/formattingData';
 
@@ -15,11 +15,9 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 const loadUser = async () => {
-  const response = await getUser();
-  if (response.isAuthenticated)
-    store.dispatch(
-      successUserAuthentication(objectKeysToCamelCase(response.user))
-    );
+  const result = await getUser();
+  if (!result.isAuthenticated) return store.dispatch(checkUserNotLogin());
+  store.dispatch(successUserAuthentication(objectKeysToCamelCase(result.user)));
 };
 
 loadUser();
