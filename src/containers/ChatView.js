@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import InputPanel from '../components/ChatView/InputPanel';
 import View from '../components/ChatView/View';
+import BackTab from '../components/BackTab/BackTab';
 import { useParams } from 'react-router-dom';
 import { getChat, postNewMessage } from '../api';
 import { enterChatRoom, addNewMessage, leaveRoom } from '../actions';
@@ -63,10 +64,11 @@ const ChatView = () => {
   };
 
   return (
-    <div className="chat-view">
-      {currentRoomChat.hasOwnProperty('messages') && (
-        <View currentRoomChat chats={currentRoomChat} user={user} />
+    <>
+      {currentRoomChat.hasOwnProperty('partner') && (
+        <BackTab title={currentRoomChat.partner.name || ''} />
       )}
+      <View chats={currentRoomChat} user={user} />
       <InputPanel
         onMessageChange={onMessageChange}
         message={message}
@@ -74,7 +76,7 @@ const ChatView = () => {
         onSubmit={handleSubmit}
         chat={currentRoomChat}
       />
-    </div>
+    </>
   );
 };
 

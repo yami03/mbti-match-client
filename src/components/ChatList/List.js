@@ -7,11 +7,15 @@ const List = ({ chats }) => {
     <li key={index}>
       <Link to={`/chat/room/${chat._id}`}>
         <div className="left">
-          <img src={chat.partner.profile_image} />
+          <img src={chat.partner.profile_image} alt="profile" />
         </div>
         <div className="right">
           <p className="name">{chat.partner.name}</p>
-          <p>마지막 메세지</p>
+          {(chats[index].messages.length && (
+            <p className="message">
+              {chats[index].messages[chats[index].messages.length - 1].content}
+            </p>
+          )) || <p className="message none">먼저 인사해 보세요~!</p>}
         </div>
       </Link>
     </li>

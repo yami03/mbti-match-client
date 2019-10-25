@@ -1,4 +1,5 @@
 import axios from 'axios';
+axios.defaults.withCredentials = true;
 
 export const postSignup = (formData, registerData) => {
   return axios
@@ -7,7 +8,7 @@ export const postSignup = (formData, registerData) => {
     })
     .then(response => {
       return axios
-        .post('/api/upload', formData)
+        .put('/api/upload', formData)
         .then(result => {
           return {
             data: result.data,
@@ -55,6 +56,15 @@ export const postLogin = data => {
         error: error.response.data.message || 'server error'
       };
     });
+};
+
+export const getLogout = () => {
+  return axios({
+    url: '/api/logout',
+    method: 'GET'
+  }).catch(error => {
+    console.log(error);
+  });
 };
 
 export const getUsers = ({ limit, pageIndex }) => {
@@ -147,5 +157,33 @@ export const postNewMessage = (roomId, data) => {
     })
     .catch(error => {
       console.log(error);
+    });
+};
+
+export const putUserInfo = (userData, formData = null) => {
+  return axios
+    .put('/api/user', {
+      ...userData
+    })
+    .then(response => {
+      if (formData) {
+        return axios
+          .put('/api/upload', formData)
+          .then(result => {
+            return result.data.user;
+          })
+          .catch(error => {
+            return {
+              error: error.response.data.message || 'server error'
+            };
+          });
+      } else {
+        return response.data.user;
+      }
+    })
+    .catch(error => {
+      return {
+        error: error.response.data.message || 'server error'
+      };
     });
 };

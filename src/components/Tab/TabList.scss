@@ -1,18 +1,25 @@
+@import '../../utility/scss/variables';
+
 nav {
+  height: 8%;
+  background-color: #f591a7;
   ul {
     display: flex;
+    align-items: center;
+    height: 100%;
   }
 
   li {
     width: 33.3333%;
+    vertical-align: middle;
 
     a {
       display: block;
-      padding: 14px 0;
       font-size: 24px;
+      color: #ebeaea;
 
       &.selected {
-        color: cyan;
+        color: #942074;
       }
     }
   }

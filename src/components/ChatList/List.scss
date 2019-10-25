@@ -1,0 +1,70 @@
+@import '../../utility/scss/variables';
+
+.chat-list {
+  position: relative;
+  height: 92%;
+  background: $background;
+  border: 2px solid #fff;
+  border-radius: 5px;
+
+  ul {
+    height: 100%;
+    overflow-y: scroll;
+  }
+
+  li {
+    height: 80px;
+    border: 2px solid #fff;
+
+    a {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      padding: 0 10px;
+    }
+
+    .left {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      width: 20%;
+    }
+
+    .right {
+      text-align: left;
+      padding-left: 10px;
+    }
+
+    .name {
+      color: #676565;
+      font-weight: bold;
+      padding-bottom: 5px;
+    }
+
+    .message {
+      font-size: 14px;
+      line-height: 18px;
+      color: #848381;
+      height: 36px;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      word-break: keep-all;
+      word-wrap: break-word;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+    }
+
+    .none {
+      font-weight: bold;
+      color: $darkblue;
+    }
+  }
+
+  img {
+    height: 70px;
+    width: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}

@@ -1,0 +1,71 @@
+@import '../../utility/scss/variables';
+
+.messages {
+  height: 84%;
+  overflow: hidden;
+  overflow-y: scroll;
+  background: $background;
+  color: #ffffff;
+
+  .profile-image {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    z-index: 2;
+  }
+
+  ul {
+    padding: 0 20px 18px;
+  }
+
+  li {
+    position: relative;
+    padding-top: 18px;
+    text-align: left;
+  }
+
+  .talk {
+    position: relative;
+    z-index: 1;
+    transform: translate(20px, -30px);
+    max-width: 67%;
+    margin-bottom: -30px;
+    padding: 16px 20px 16px 30px;
+    font-size: 14px;
+    line-height: 22px;
+    color: #746a6a;
+    background-color: #ffffff;
+    border-radius: 5px;
+    height: auto;
+  }
+
+  li.partner {
+    position: relative;
+
+    .name {
+      position: absolute;
+      top: 29px;
+      left: 62px;
+      color: $darkblue;
+    }
+  }
+
+  li.me {
+    display: flex;
+    flex-direction: column;
+
+    .talk {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+      width: 60%;
+      text-align: left;
+      margin-right: 58px;
+    }
+  }
+
+  img {
+    align-self: flex-end;
+  }
+}
