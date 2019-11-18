@@ -34,7 +34,7 @@ AWS_SECRETACCESSKEY
 
 * DATABASE_URI: Mongodb와 연결할 connection string 
 *  AWS_ACCESSKEYID: 액세스할 수 있는 권한이 있는지 여부를 확인하는 Amazon Web Services(AWS)의 엑세스 키 ID
-* AWS_SECRETACCESSKEY: 액세스할 수 있는 권한이 있는지 여부를 확인하는 Amazon Web Services(AWS)의 시크릿 키 ID
+* AWS_SECRETACCESSKEY: 액세스할 수 있는 권한이 있는지 여부를 확인하는 Amazon Web Services(AWS)의 시크릿 키
 
 ## Features
 
