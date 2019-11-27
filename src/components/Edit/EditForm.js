@@ -33,6 +33,7 @@ const EditForm = ({ onSubmit, onChange, edit, error, onFileChange }) => {
           <option value="enfj">ENFJ 정의로운 사회운동가</option>
           <option value="enfp">ENFP 재기발랄한 활동가</option>
           <option value="istj">ISTJ 청렴결백한 논리주의자</option>
+          <option value="isfj">ISFJ 용감한 수호자</option>
           <option value="estj">ESTJ 엄격한 관리자</option>
           <option value="esfj">ESFJ 사교적인 외교관</option>
           <option value="istp">ISTP 만능 재주꾼</option>
