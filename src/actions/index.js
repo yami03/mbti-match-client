@@ -18,7 +18,8 @@ import {
   SUCCESS_REGISTER_MEMBER,
   SELECTED_ALL_MEMBERS,
   NONE_CHATS,
-  ADD_NEW_USERS_LIST
+  ADD_NEW_USERS_LIST,
+  LEAVE_MEMBERS_LIST
 } from '../contants/actionTypes';
 
 export const changeRegisterForm = ({ name, value }) => ({
@@ -38,7 +39,6 @@ export const checkUserNotLogin = () => ({
 });
 
 export const registerMember = ({ user, isAuthenticated }) => {
-  debugger;
   return {
     type: SUCCESS_REGISTER_MEMBER,
     user,
@@ -130,4 +130,8 @@ export const noticeNoneChats = () => ({
 export const addNewUsers = data => ({
   type: ADD_NEW_USERS_LIST,
   users: data.users
+});
+
+export const leaveMemberList = () => ({
+  type: LEAVE_MEMBERS_LIST
 });
