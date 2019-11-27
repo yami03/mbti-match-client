@@ -2,7 +2,7 @@ import io from 'socket.io-client';
 import { MESSAGE, ERROR, JOIN, LEAVE } from '../../contants/socketEventTypes';
 
 export default function() {
-  const socket = io.connect('http://localhost:4001');
+  const socket = io.connect('https://api.slaspace.com');
 
   socket.on(ERROR, function(err) {
     console.log(err);
