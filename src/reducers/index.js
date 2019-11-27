@@ -18,7 +18,8 @@ import {
   SUCCESS_REGISTER_MEMBER,
   SELECTED_ALL_MEMBERS,
   NONE_CHATS,
-  ADD_NEW_USERS_LIST
+  ADD_NEW_USERS_LIST,
+  LEAVE_MEMBERS_LIST
 } from '../contants/actionTypes';
 import socket from '../lib/socket';
 
@@ -133,6 +134,7 @@ function reducer(state = initialState, action) {
       return Object.assign({}, state, {
         users: action.users,
         totalUserCount: action.totalUserCount,
+        totalChoiceCount: 0,
         hasUsersNotice: false
       });
     case ADD_NEW_USERS_LIST:
@@ -184,6 +186,15 @@ function reducer(state = initialState, action) {
     case NONE_CHATS:
       return Object.assign({}, state, {
         hasChatsNotice: true
+      });
+    case LEAVE_MEMBERS_LIST:
+      return Object.assign({}, state, {
+        users: [],
+        totalUserCount: 0,
+        totalChoiceCount: 0,
+        choiceCount: 0,
+        pageIndex: 0,
+        hasUsersNotice: true
       });
     default:
       return state;

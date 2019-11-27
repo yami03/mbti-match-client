@@ -14,9 +14,9 @@ import {
   resetChoiceCount,
   increasePageIndex,
   noticeSelectedAll,
-  addNewUsers
+  addNewUsers,
+  leaveMemberList
 } from '../actions';
-import { stat } from 'fs';
 
 const ListMembers = () => {
   const [view, setView] = useState('front');
@@ -58,7 +58,10 @@ const ListMembers = () => {
     };
 
     setUsers();
-  }, []);
+    return () => {
+      dispatch(leaveMemberList());
+    };
+  }, [dispatch]);
 
   const onLikeClick = async () => {
     const likeMeList = await getLikeMe();
