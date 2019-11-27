@@ -60,5 +60,5 @@
     "jest-enzyme": "^7.1.1",
     "react-test-renderer": "^16.11.0"
   },
-  "proxy": "http://localhost:4001"
+  "proxy": "https://api.slaspace.com"
 }

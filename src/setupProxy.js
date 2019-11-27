@@ -4,7 +4,7 @@ module.exports = function(app) {
   app.use(
     '/api',
     proxy({
-      target: 'http://localhost:4001',
+      target: 'https://api.slaspace.com',
       changeOrigin: true
     })
   );
