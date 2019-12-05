@@ -2,9 +2,11 @@ import io from 'socket.io-client';
 import { MESSAGE, ERROR, JOIN, LEAVE } from '../../contants/socketEventTypes';
 
 export default function() {
-  const socket = io.connect('https://api.slaspace.com', {
-    transports: ['websocket']
-  });
+  const socket = io.connect(
+    'https://api.slaspace.com',
+    { transports: ['websocket'], upgrade: false },
+    { 'force new connection': true }
+  );
 
   socket.on(ERROR, function(err) {
     console.log(err);
