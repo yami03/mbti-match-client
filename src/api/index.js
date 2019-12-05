@@ -1,14 +1,16 @@
 import axios from 'axios';
 axios.defaults.withCredentials = true;
 
+const API = 'https://api.slaspace.com';
+
 export const postSignup = (formData, registerData) => {
   return axios
-    .post('/api/signup', {
+    .post(`${API}/api/signup`, {
       ...registerData
     })
     .then(response => {
       return axios
-        .put('/api/upload', formData)
+        .put(`${API}/api/upload`, formData)
         .then(result => {
           return {
             data: result.data,
@@ -30,7 +32,7 @@ export const postSignup = (formData, registerData) => {
 
 export const getUser = () => {
   return axios
-    .get('/api/auth/user')
+    .get(`${API}/api/auth/user`)
     .then(response => response.data)
     .catch(error => {
       return {
@@ -41,7 +43,7 @@ export const getUser = () => {
 
 export const postLogin = data => {
   return axios({
-    url: '/api/login',
+    url: `${API}/api/login`,
     method: 'POST',
     data
   })
@@ -60,7 +62,7 @@ export const postLogin = data => {
 
 export const getLogout = () => {
   return axios({
-    url: '/api/logout',
+    url: `${API}/api/logout`,
     method: 'GET'
   }).catch(error => {
     console.log(error);
@@ -69,7 +71,7 @@ export const getLogout = () => {
 
 export const getUsers = ({ limit, pageIndex }) => {
   return axios({
-    url: `/api/users?limit=${limit}&pageIndex=${pageIndex}`,
+    url: `${API}/api/users?limit=${limit}&pageIndex=${pageIndex}`,
     method: 'GET'
   })
     .then(response => {
@@ -82,7 +84,7 @@ export const getUsers = ({ limit, pageIndex }) => {
 
 export const addLikeUser = partnerId => {
   return axios({
-    url: `/api/users/likes/${partnerId}`,
+    url: `${API}/api/users/likes/${partnerId}`,
     method: 'PUT'
   })
     .then(response => {
@@ -95,7 +97,7 @@ export const addLikeUser = partnerId => {
 
 export const getLikeMe = () => {
   return axios({
-    url: '/api/user/likes',
+    url: `${API}/api/user/likes`,
     method: 'GET'
   })
     .then(response => {
@@ -108,7 +110,7 @@ export const getLikeMe = () => {
 
 export const postChat = partnerId => {
   return axios({
-    url: `/api/chats/${partnerId}`,
+    url: `${API}/api/chats/${partnerId}`,
     method: 'POST'
   })
     .then(response => {
@@ -121,7 +123,7 @@ export const postChat = partnerId => {
 
 export const getChats = () => {
   return axios({
-    url: '/api/chats',
+    url: `${API}/api/chats`,
     method: 'GET'
   })
     .then(response => {
@@ -134,7 +136,7 @@ export const getChats = () => {
 
 export const getChat = roomId => {
   return axios({
-    url: `/api/chats/${roomId}`,
+    url: `${API}/api/chats/${roomId}`,
     method: 'GET'
   })
     .then(response => {
@@ -147,7 +149,7 @@ export const getChat = roomId => {
 
 export const postNewMessage = (roomId, data) => {
   return axios({
-    url: `/api/chats/${roomId}`,
+    url: `${API}/api/chats/${roomId}`,
     method: 'PUT',
     data
   })
@@ -162,7 +164,7 @@ export const postNewMessage = (roomId, data) => {
 
 export const putUserInfo = (userData, formData = null) => {
   return axios
-    .put('/api/user', {
+    .put(`${API}/api/user`, {
       ...userData
     })
     .then(response => {
