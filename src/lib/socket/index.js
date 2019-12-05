@@ -2,7 +2,9 @@ import io from 'socket.io-client';
 import { MESSAGE, ERROR, JOIN, LEAVE } from '../../contants/socketEventTypes';
 
 export default function() {
-  const socket = io.connect('https://api.slaspace.com', { secure: true });
+  const socket = io.connect('https://api.slaspace.com', {
+    transports: ['websocket']
+  });
 
   socket.on(ERROR, function(err) {
     console.log(err);
