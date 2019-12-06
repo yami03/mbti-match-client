@@ -3,7 +3,7 @@ import { MESSAGE, ERROR, JOIN, LEAVE } from '../../contants/socketEventTypes';
 
 export default function() {
   const socket = io.connect(
-    'https://api.slaspace.com',
+    'http://localhost:8081',
     { transports: ['websocket'], upgrade: false },
     { 'force new connection': true }
   );
