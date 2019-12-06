@@ -1,5 +1,7 @@
 # mbti-match
 
+[![youtube](README.assets/youtube.png)](https://youtu.be/ApJpejiBE9I)
+
 소개팅 모바일 웹 어플리케이션입니다. 
 매칭이 되었을 시 사용자와 상대방의 [mbti]([https://en.wikipedia.org/wiki/Myers%E2%80%93Briggs_Type_Indicator](https://en.wikipedia.org/wiki/Myers–Briggs_Type_Indicator)) 적합성을 결과로 알려주고 socket.io를 이용하여 채팅 하실 수 있습니다.
 
@@ -11,7 +13,7 @@
 git clone https://github.com/yami03/mbti-match-client.git
 cd mbti-match-client
 npm install
-npm start
+npm run dev
 ```
 
 #### Server
@@ -20,7 +22,7 @@ npm start
 git clone https://github.com/yami03/mbti-match-server.git
 cd mbti-match-server
 npm install
-npm start
+npm run dev
 ```
 
 로컬에서 실행시 /.env 파일이 필요합니다.
