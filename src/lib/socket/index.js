@@ -2,11 +2,10 @@ import io from 'socket.io-client';
 import { MESSAGE, ERROR, JOIN, LEAVE } from '../../contants/socketEventTypes';
 
 export default function() {
-  const socket = io.connect(
-    'http://localhost:8081',
-    { transports: ['websocket'], upgrade: false },
-    { 'force new connection': true }
-  );
+  const socket = io.connect('https://mbti-match.slaspace.com', {
+    transports: ['websocket'],
+    upgrade: false
+  });
 
   socket.on(ERROR, function(err) {
     console.log(err);
