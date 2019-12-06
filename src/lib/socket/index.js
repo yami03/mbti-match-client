@@ -1,8 +1,9 @@
 import io from 'socket.io-client';
 import { MESSAGE, ERROR, JOIN, LEAVE } from '../../contants/socketEventTypes';
+import ROOT from '../../config';
 
 export default function() {
-  const socket = io.connect('https://mbti-match.slaspace.com', {
+  const socket = io.connect(ROOT, {
     transports: ['websocket'],
     upgrade: false
   });

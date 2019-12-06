@@ -1,16 +1,16 @@
 import axios from 'axios';
-axios.defaults.withCredentials = true;
+import ROOT from '../config';
 
-const API = 'https://api.slaspace.com';
+axios.defaults.withCredentials = true;
 
 export const postSignup = (formData, registerData) => {
   return axios
-    .post(`${API}/api/signup`, {
+    .post(`${ROOT}/api/signup`, {
       ...registerData
     })
     .then(response => {
       return axios
-        .put(`${API}/api/upload`, formData)
+        .put(`${ROOT}/api/upload`, formData)
         .then(result => {
           return {
             data: result.data,
@@ -32,7 +32,7 @@ export const postSignup = (formData, registerData) => {
 
 export const getUser = () => {
   return axios
-    .get(`${API}/api/auth/user`)
+    .get(`${ROOT}/api/auth/user`)
     .then(response => response.data)
     .catch(error => {
       return {
@@ -43,7 +43,7 @@ export const getUser = () => {
 
 export const postLogin = data => {
   return axios({
-    url: `${API}/api/login`,
+    url: `${ROOT}/api/login`,
     method: 'POST',
     data
   })
@@ -62,7 +62,7 @@ export const postLogin = data => {
 
 export const getLogout = () => {
   return axios({
-    url: `${API}/api/logout`,
+    url: `${ROOT}/api/logout`,
     method: 'GET'
   }).catch(error => {
     console.log(error);
@@ -71,7 +71,7 @@ export const getLogout = () => {
 
 export const getUsers = ({ limit, pageIndex }) => {
   return axios({
-    url: `${API}/api/users?limit=${limit}&pageIndex=${pageIndex}`,
+    url: `${ROOT}/api/users?limit=${limit}&pageIndex=${pageIndex}`,
     method: 'GET'
   })
     .then(response => {
@@ -84,7 +84,7 @@ export const getUsers = ({ limit, pageIndex }) => {
 
 export const addLikeUser = partnerId => {
   return axios({
-    url: `${API}/api/users/likes/${partnerId}`,
+    url: `${ROOT}/api/users/likes/${partnerId}`,
     method: 'PUT'
   })
     .then(response => {
@@ -97,7 +97,7 @@ export const addLikeUser = partnerId => {
 
 export const getLikeMe = () => {
   return axios({
-    url: `${API}/api/user/likes`,
+    url: `${ROOT}/api/user/likes`,
     method: 'GET'
   })
     .then(response => {
@@ -110,7 +110,7 @@ export const getLikeMe = () => {
 
 export const postChat = partnerId => {
   return axios({
-    url: `${API}/api/chats/${partnerId}`,
+    url: `${ROOT}/api/chats/${partnerId}`,
     method: 'POST'
   })
     .then(response => {
@@ -123,7 +123,7 @@ export const postChat = partnerId => {
 
 export const getChats = () => {
   return axios({
-    url: `${API}/api/chats`,
+    url: `${ROOT}/api/chats`,
     method: 'GET'
   })
     .then(response => {
@@ -136,7 +136,7 @@ export const getChats = () => {
 
 export const getChat = roomId => {
   return axios({
-    url: `${API}/api/chats/${roomId}`,
+    url: `${ROOT}/api/chats/${roomId}`,
     method: 'GET'
   })
     .then(response => {
@@ -149,7 +149,7 @@ export const getChat = roomId => {
 
 export const postNewMessage = (roomId, data) => {
   return axios({
-    url: `${API}/api/chats/${roomId}`,
+    url: `${ROOT}/api/chats/${roomId}`,
     method: 'PUT',
     data
   })
@@ -164,7 +164,7 @@ export const postNewMessage = (roomId, data) => {
 
 export const putUserInfo = (userData, formData = null) => {
   return axios
-    .put(`${API}/api/user`, {
+    .put(`${ROOT}/api/user`, {
       ...userData
     })
     .then(response => {
