@@ -1,7 +1,8 @@
 import axios from 'axios';
-import ROOT from '../config';
+import { config } from '../config';
 
 axios.defaults.withCredentials = true;
+const { ROOT } = config;
 
 export const postSignup = (formData, registerData) => {
   return axios

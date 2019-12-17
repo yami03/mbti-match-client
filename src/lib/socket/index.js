@@ -1,11 +1,12 @@
 import io from 'socket.io-client';
 import { MESSAGE, ERROR, JOIN, LEAVE } from '../../contants/socketEventTypes';
-import ROOT from '../../config';
+import { config } from '../../config';
+
+const { SOCKET_ROOT } = config;
 
 export default function() {
-  const socket = io.connect(ROOT, {
-    transports: ['websocket'],
-    upgrade: false
+  const socket = io.connect(SOCKET_ROOT, {
+    transports: ['websocket']
   });
 
   socket.on(ERROR, function(err) {
