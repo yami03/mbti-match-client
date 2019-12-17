@@ -5,7 +5,7 @@ if (process.env.NODE_ENV === 'development') {
   SOCKET_ROOT = 'http://localhost:8081';
 } else {
   ROOT = 'https://api.slaspace.com';
-  SOCKET_ROOT = 'https://api.slaspace.com';
+  SOCKET_ROOT = 'http://13.125.6.54:8080';
 }
 
 export const config = {
