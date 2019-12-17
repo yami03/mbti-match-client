@@ -5,9 +5,7 @@ import { config } from '../../config';
 const { SOCKET_ROOT } = config;
 
 export default function() {
-  const socket = io.connect(SOCKET_ROOT, {
-    transports: ['websocket']
-  });
+  const socket = io.connect(SOCKET_ROOT);
 
   socket.on(ERROR, function(err) {
     console.log(err);
