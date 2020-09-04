@@ -10,7 +10,7 @@
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.4.0",
     "http-proxy-middleware": "^0.20.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "react": "^16.10.2",
     "react-addons-css-transition-group": "^15.6.2",
     "react-countup": "^4.2.2",
